@@ -11,7 +11,7 @@ public class ChatController {
 		return "Welcome home!";
 	}
 	
-	@GetMapping("Hello")
+	@GetMapping("hello")
 	public String Hello() {
 		return "Hello World";
 	}
