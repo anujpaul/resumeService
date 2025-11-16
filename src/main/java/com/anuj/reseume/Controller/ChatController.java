@@ -8,7 +8,12 @@ public class ChatController {
 	
 	@GetMapping("/")
 	public String home() {
-		return "Hello";
+		return "Welcome home!";
+	}
+	
+	@GetMapping("Hello")
+	public String Hello() {
+		return "Hello World";
 	}
 
 }
