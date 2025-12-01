@@ -22,8 +22,8 @@ public class ChatController {
 		return "Welcome home!";
 	}
 	
-	@PostMapping("hello")
-	public ResponseEntity<ChatMessage> hello(@RequestBody String message) {
+	@PostMapping("greet")
+	public ResponseEntity<ChatMessage> greet(@RequestBody String message) {
 		System.out.println(message);
 		try {
 			//throw new  RuntimeException("Improper structure");
