@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.anuj.reseume.model.ChatMessage;
 
 
-@CrossOrigin(origins = "http://localhost:4200")
+@CrossOrigin(origins = {"http://localhost:4200", "https://anujpaul.github.io", "https://anujpaulresume.azurewebsites.net"})
 @RestController
 @RequestMapping("/chat")
 public class ChatController {
