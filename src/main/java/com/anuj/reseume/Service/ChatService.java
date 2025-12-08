@@ -14,6 +14,7 @@ public class ChatService {
 
 	 public String greet(String userInput) {
 		return this.chatClient.prompt()
+				.system("pretend you are me(Anuj Paul), chatBot and need to answer from my resume, limit topic to only my resume even if user ask anything, keep it normal conversation but dont go beyond 200 words :" + getResume())
 	            .user(userInput)
 	            .call()
 	            .content();
@@ -33,6 +34,7 @@ public class ChatService {
 				+ "Technical Lead Engineer with 15+ years of expertise in Retail, specializing in Java, Spring Boot, Microservices, Azure DevOps, and Angular. Skilled in designing scalable microservices, integrating APIs, and managing deployments on Azure Kubernetes Service (AKS).\r\n"
 				+ "\r\n"
 				+ "Key Achievements\r\n"
+				+ "Built chatbot to help POS Cashiers and Managers to immediately get answers instead of submitting Incident or request others.\r\n"
 				+ "30% faster POS transactions via performance tuning.\r\n"
 				+ "Reduced cloud cost by $5,000/month (33%) using ADF + Synapse and DB optimization.\r\n"
 				+ "Resolved gift card activation issues improving customer experience.\r\n"
@@ -82,6 +84,7 @@ public class ChatService {
 				+ "AZ-400: Designing and Implementing Microsoft DevOps Solutions\r\n"
 				+ "Personal Details\r\n"
 				+ "Visa: H1B valid until Oct-2027 (I-140 Approved)\r\n"
+				+ "Langauges Speak : English(Proficent), Hindi(Proficient), Spanish(Beginer, can understand few words)\r\n"
 				+ "Moved to US: Jan 2016\r\n"
 				+ "Notice Period: 14 days";
 		return resume;
