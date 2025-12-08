@@ -1,6 +1,6 @@
 package com.anuj.reseume.Controller;
 
-import org.springframework.ai.chat.client.ChatClient;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.anuj.reseume.Service.ChatService;
 import com.anuj.reseume.model.ChatMessage;
 
 
@@ -18,11 +19,10 @@ import com.anuj.reseume.model.ChatMessage;
 @RequestMapping("/chat")
 public class ChatController {
 	
-	private final ChatClient chatClient;
+	@Autowired
+	private ChatService chatService;
 	
-	 public ChatController(ChatClient.Builder chatClientBuilder) {
-	        this.chatClient = chatClientBuilder.build();
-	    }
+	
 	
 	@GetMapping("/")
 	public String home() {
@@ -31,22 +31,37 @@ public class ChatController {
 	
 	@PostMapping("greet")
 	public ResponseEntity<ChatMessage> greet(@RequestBody String message) {
+		
 		System.out.println(message);
 		
-		String userInput = "My name is " +message +"Greet me with only 1 line 8-15 words.";
+		String userInput = "My name is " +message +"Greet me with only 1 line 8-15 words.";			
 		
-		String response = this.chatClient.prompt()
-	            .user(userInput)
-	            .call()
-	            .content();
+		String response = chatService.greet(userInput);
+		
+		return returnResponse(response);
+	}
+
+	private ResponseEntity<ChatMessage> returnResponse(String response) {
 		try {
-			//throw new  RuntimeException("Improper structure");
 	    	return new ResponseEntity<>(new ChatMessage(response), HttpStatus.OK);
 	    	}
 		
 		catch(Exception e) {
 			return new ResponseEntity<>(new ChatMessage("Something went wrong : " + e.getMessage()), HttpStatus.BAD_REQUEST);
 		}
+	}
+	
+	@PostMapping("resumeQuestion")
+	public ResponseEntity<ChatMessage> resumeQuestion(@RequestBody String message) {
+	
+		System.out.println("Message is : " +message);
+		
+		String resume = chatService.getResume();
+		
+		String userInput = "You are my chatBot and need to answer from my resume, this is my resume " +resume +"This is the question asked by user : " +message+" Answer only 1 line 20-30 words.";	
+		
+		String response = chatService.greet(userInput);
+		return returnResponse(response);
 	}
 
 }
