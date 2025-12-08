@@ -58,7 +58,7 @@ public class ChatController {
 		
 		String resume = chatService.getResume();
 		
-		String userInput = "You are my chatBot and need to answer from my resume, this is my resume " +resume +"This is the question asked by user : " +message+" Answer only 1 line 20-30 words.";	
+		String userInput = "You are my chatBot and need to answer from my resume, this is my resume " +resume +"This is the question asked by user : " +message+" Answer only 1 line 20-30 words about my resume, say I can answer only about Anuj's Resume if something else is asked.";	
 		
 		String response = chatService.greet(userInput);
 		return returnResponse(response);
