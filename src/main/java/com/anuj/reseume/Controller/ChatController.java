@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.anuj.reseume.Service.ChatService;
+import com.anuj.reseume.Service.StartupBlobLoader;
 import com.anuj.reseume.model.ChatMessage;
 
 
@@ -36,7 +37,7 @@ public class ChatController {
 		
 		String userInput = "My name is " +message +"Greet me with only 1 line 8-15 words.";			
 		
-		String response = chatService.greet(userInput);
+		String response = chatService.ask(userInput, "I have asked for user name, Greet them if they replied with name");
 		
 		return returnResponse(response);
 	}
@@ -52,15 +53,23 @@ public class ChatController {
 	}
 	
 	@PostMapping("resumeQuestion")
-	public ResponseEntity<ChatMessage> resumeQuestion(@RequestBody String message) {
+	public ResponseEntity<ChatMessage> resumeQuestion(@RequestBody String userMessage) {
 	
-		System.out.println("Message is : " +message);
+		System.out.println("Message is : " +userMessage);
 		
-		String resume = chatService.getResume();
+		String systemString = """
+									You are Anuj Paul’s personal chatbot. 
+									Answer ONLY based on the resume provided below. 
+									Politely avoid answering user anything outside the resume. 
+									If the topic is related to my resume, such as if they ask about GitLab, explain about my experiance on similar topics from my resume. 
+									Only excepotion is if user ask about about AX and D365, answer as technical developer, otherwise avoid.
+									Keep answers concise (under 200 words).									
+									Here is my resume :
+							""" 
+							+ StartupBlobLoader.RESUME_CONTENT;
+							
 		
-			
-		
-		String response = chatService.greet("User has texted " +message);
+		String response = chatService.ask(userMessage, systemString);
 		return returnResponse(response);
 	}
 
