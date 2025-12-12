@@ -16,9 +16,9 @@ public class ChatService {
 	        this.chatClient = chatClientBuilder.build();
 	    }
 
-	 public String ask(String userMessage, String system) {
+	 public String ask(String userMessage, String systemString) {
 		 
-		String systemString = system+ "Here is my resume : "  +StartupBlobLoader.RESUME_CONTENT;
+	
 		 
 		return this.chatClient.prompt()
 				.system(systemString)
