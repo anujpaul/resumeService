@@ -58,7 +58,7 @@ public class ChatController {
 		System.out.println("Message is : " +userMessage);
 		
 		String systemString = """
-									You are Anuj Paul’s personal chatbot. 
+									You are Anuj Paul’s personal chatbot.
 									Answer ONLY based on the resume provided below. 
 									Politely avoid answering user anything outside the resume. 
 									If the topic is related to my resume, such as if they ask about GitLab, explain about my experiance on similar topics from my resume. 
