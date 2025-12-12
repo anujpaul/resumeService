@@ -8,7 +8,7 @@ public class ChatHome {
 	
 	@GetMapping("")
 	public String home() {
-		return "Application is up and running";
+		return "Application is up and running.";
 	}
 
 }
