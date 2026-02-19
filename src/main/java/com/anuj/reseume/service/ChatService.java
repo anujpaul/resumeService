@@ -1,14 +1,13 @@
-package com.anuj.reseume.Service;
+package com.anuj.reseume.service;
 
 import org.springframework.ai.chat.client.ChatClient;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 @Service
 public class ChatService {
 	
-	@Autowired
-	BlobService service;
+//	@Autowired
+//	BlobService service;
 	
 	private final ChatClient chatClient;
 	
@@ -16,7 +15,7 @@ public class ChatService {
 	        this.chatClient = chatClientBuilder.build();
 	    }
 
-	 public String ask(String userMessage, String systemString) {
+	 public String ask(String sessionId, String userMessage, String systemString) {
 		 
 	
 		 

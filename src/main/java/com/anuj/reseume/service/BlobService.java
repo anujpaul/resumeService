@@ -1,4 +1,4 @@
-package com.anuj.reseume.Service;
+package com.anuj.reseume.service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -14,13 +14,9 @@ import com.azure.storage.blob.BlobContainerClientBuilder;
 @Service
 public class BlobService {
 	
-	private BlobContainerClient  containerClient;
-
-
-	
 	public String readBlob(String connectionString, String containerName, String blobName) {
 		
-		this.containerClient = new BlobContainerClientBuilder()
+		BlobContainerClient  containerClient = new BlobContainerClientBuilder()
 				.connectionString(connectionString)
 				.containerName(containerName)
 				.buildClient();

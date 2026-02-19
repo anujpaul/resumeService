@@ -1,4 +1,4 @@
-package com.anuj.reseume.Controller;
+package com.anuj.resume.controller;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
