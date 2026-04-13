@@ -1,4 +1,4 @@
-package com.anuj.reseume.model;
+package com.anuj.resume.model;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

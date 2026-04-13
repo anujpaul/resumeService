@@ -1,13 +1,13 @@
-package com.anuj.reseume;
+package com.anuj.resume;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-public class ReseumeApplication {
+public class ResumeApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(ReseumeApplication.class, args);
+		SpringApplication.run(ResumeApplication.class, args);
 	}
 
 }

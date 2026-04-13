@@ -1,4 +1,4 @@
-package com.anuj.reseume.service;
+package com.anuj.resume.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;

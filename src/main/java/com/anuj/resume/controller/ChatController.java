@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RequestHeader;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.anuj.reseume.model.ChatMessage;
-import com.anuj.reseume.service.ChatService;
-import com.anuj.reseume.service.StartupBlobLoader;
+import com.anuj.resume.model.ChatMessage;
+import com.anuj.resume.service.ChatService;
+import com.anuj.resume.service.StartupBlobLoader;
 
 
 @CrossOrigin(origins = {"http://localhost:4200", "https://anujpaul.github.io", "https://anujpaulresume.azurewebsites.net"})

@@ -1,4 +1,4 @@
-package com.anuj.reseume.service;
+package com.anuj.resume.service;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.stereotype.Service;

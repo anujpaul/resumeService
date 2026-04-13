@@ -1,4 +1,4 @@
-package com.anuj.reseume.service;
+package com.anuj.resume.service;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
