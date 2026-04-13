@@ -7,9 +7,12 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
+import com.azure.identity.DefaultAzureCredentialBuilder;
 import com.azure.storage.blob.BlobClient;
 import com.azure.storage.blob.BlobContainerClient;
 import com.azure.storage.blob.BlobContainerClientBuilder;
+import com.azure.storage.blob.BlobServiceClient;
+import com.azure.storage.blob.BlobServiceClientBuilder;
 
 @Service
 public class BlobService {
@@ -21,6 +24,13 @@ public class BlobService {
 				.containerName(containerName)
 				.buildClient();
 		BlobClient blobClient = containerClient.getBlobClient(blobName);
+
+		String storageAccountName = "anujpaulstorageaccount";
+		BlobServiceClientBuilder serviceClient = new BlobServiceClientBuilder()
+				.endpoint("https://" +storageAccountName +"/net.core.windows.net")
+				.credential(new DefaultAzureCredentialBuilder().build());
+
+		
 		
 		try (BufferedReader reader = new BufferedReader(
                 new InputStreamReader(blobClient.openInputStream(), StandardCharsets.UTF_8))) {
